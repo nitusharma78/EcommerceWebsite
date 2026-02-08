@@ -49,7 +49,6 @@ class User extends Authenticatable implements JWTSubject
         ];
     }
 
-
     // JWT required methods
     public function getJWTIdentifier()
     {

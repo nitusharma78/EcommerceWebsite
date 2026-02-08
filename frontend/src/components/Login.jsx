@@ -1,12 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { login } from "../api/auth";
-import { useNavigate } from "react-router-dom";
 
 
 const Login = ({ close, openRegister }) => {
 
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -38,7 +36,7 @@ const Login = ({ close, openRegister }) => {
 
       //Redirect or state update
       alert("Login successful");
-      navigate("/Home");
+      // navigate("/Home");
 
 
     } catch (err) {
@@ -52,19 +50,19 @@ const Login = ({ close, openRegister }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-red-200/50 backdrop-blur-sm">
-      <div className="relative w-full max-w-md p-8 overflow-hidden shadow-2xl bg-white/30 rounded-3xl backdrop-blur-md border border-white/40 ring-1 ring-black/5">
+      <div className="relative w-full max-w-md p-8 overflow-hidden border shadow-2xl bg-white/30 rounded-3xl backdrop-blur-md border-white/40 ring-1 ring-black/5">
 
         {/* Close Button */}
         <button
           onClick={close}
-          className="absolute top-4 right-4 p-1 text-gray-500 transition-colors duration-200 rounded-full hover:bg-white/40 hover:text-gray-800 focus:outline-none"
+          className="absolute p-1 text-gray-500 transition-colors duration-200 rounded-full top-4 right-4 hover:bg-white/40 hover:text-gray-800 focus:outline-none"
         >
-          <span className="material-symbols-outlined text-xl">close</span>
+          <span className="text-xl material-symbols-outlined">close</span>
         </button>
 
         {/* Title */}
         <div className="mb-8 text-center">
-          <h2 className="text-3xl font-extrabold text-gray-800 tracking-tight">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-800">
             Welcome Back
           </h2>
           <p className="mt-2 text-sm text-gray-600">
@@ -72,7 +70,7 @@ const Login = ({ close, openRegister }) => {
           </p>
         </div>
 
-        {error && <p className="text-red-500 mb-2">{error}</p>}
+        {error && <p className="mb-2 text-red-500">{error}</p>}
 
         {/* Form */}
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -88,7 +86,7 @@ const Login = ({ close, openRegister }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="name@example.com"
-                className="w-full px-4 py-3 text-gray-700 transition lg:text-sm placeholder-gray-400 bg-white/50 border border-gray-200 rounded-xl focus:border-red-400 focus:ring-4 focus:ring-red-400/20 focus:outline-none"
+                className="w-full px-4 py-3 text-gray-700 placeholder-gray-400 transition border border-gray-200 lg:text-sm bg-white/50 rounded-xl focus:border-red-400 focus:ring-4 focus:ring-red-400/20 focus:outline-none"
               />
               <span className="absolute right-3 top-3 text-gray-400 material-symbols-outlined text-[20px]">
                 mail
@@ -110,7 +108,7 @@ const Login = ({ close, openRegister }) => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className="w-full px-4 py-3 text-gray-700 transition lg:text-sm placeholder-gray-400 bg-white/50 border border-gray-200 rounded-xl focus:border-red-400 focus:ring-4 focus:ring-red-400/20 focus:outline-none"
+                className="w-full px-4 py-3 text-gray-700 placeholder-gray-400 transition border border-gray-200 lg:text-sm bg-white/50 rounded-xl focus:border-red-400 focus:ring-4 focus:ring-red-400/20 focus:outline-none"
               />
               <span className="absolute right-3 top-3 text-gray-400 material-symbols-outlined text-[20px]">
                 lock

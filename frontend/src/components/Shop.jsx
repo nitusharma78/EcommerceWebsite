@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const Shop = () => {
+const Shop = ({ category }) => {
     // Dummy Data
     const products = Array.from({ length: 12 }).map((_, index) => ({
         id: index + 1,
@@ -10,15 +10,17 @@ const Shop = () => {
         price: (Math.random() * 1000 + 500).toFixed(0),
         originalPrice: (Math.random() * 2000 + 1000).toFixed(0),
         discount: "40",
-        image: `https://source.unsplash.com/random/400x500/?fashion,${index}` // Placeholder
+        image: `https://source.unsplash.com/random/400x500/?fashion,${category || 'style'},${index}` // Placeholder
     }));
+
+    const displayCategory = category ? category.charAt(0).toUpperCase() + category.slice(1) : "All Products";
 
     return (
         <div className="min-h-screen pt-4 bg-gray-50">
             <div className="container px-6 py-8 mx-auto">
                 <div className="flex flex-col mb-8 md:flex-row md:items-center md:justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900">Shop All Products</h1>
+                        <h1 className="text-3xl font-bold text-gray-900">Shop {displayCategory}</h1>
                         <p className="mt-1 text-gray-500">Showing {products.length} results</p>
                     </div>
 
