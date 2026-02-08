@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,7 +28,6 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-
         $token = auth('api')->login($user);
 
         return response()->json([
@@ -43,7 +42,7 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (!$token = auth('api')->attempt($credentials)) {
+        if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Invalid credentials'], 401);
         }
 
@@ -64,6 +63,7 @@ class AuthController extends Controller
     public function logout()
     {
         auth('api')->logout();
+
         return response()->json(['message' => 'Logged out successfully']);
     }
 }

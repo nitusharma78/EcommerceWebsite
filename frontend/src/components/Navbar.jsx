@@ -2,7 +2,7 @@ import { logout } from "../api/auth";
 import Login from "./Login";
 import Register from "./Register";
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -12,7 +12,7 @@ const Navbar = () => {
     try {
       await logout();
       localStorage.removeItem("token");
-      navigate("/Home");
+      navigate("/");
     } catch (error) {
       console.log(error);
       alert("Logout failed");
@@ -44,18 +44,18 @@ const Navbar = () => {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 md:px-10">
         {/* Logo */}
-        <div className="text-2xl font-bold text-pink-600 cursor-pointer">
+        <Link to="/" className="text-2xl font-bold text-pink-600 cursor-pointer">
           MYNTRA
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden gap-8 text-sm font-semibold text-gray-700 md:flex">
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">MEN</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">WOMEN</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">KIDS</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">HOME</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">BEAUTY</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">GENZ</li>
+          <Link to="/men" className="text-pink-600 cursor-pointer hover:text-pink-600">MEN</Link>
+          <Link to="/women" className="text-pink-600 cursor-pointer hover:text-pink-600">WOMEN</Link>
+          <Link to="/kids" className="text-pink-600 cursor-pointer hover:text-pink-600">KIDS</Link>
+          <Link to="/home-decor" className="text-pink-600 cursor-pointer hover:text-pink-600">HOME</Link>
+          <Link to="/beauty" className="text-pink-600 cursor-pointer hover:text-pink-600">BEAUTY</Link>
+          <Link to="/genz" className="text-pink-600 cursor-pointer hover:text-pink-600">GENZ</Link>
         </ul>
 
         {/* Desktop Right Section (Search + Icons) */}
@@ -160,12 +160,12 @@ const Navbar = () => {
 
         {/* Links (Mobile) */}
         <ul className="flex flex-col gap-3 text-sm font-semibold text-gray-700">
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">MEN</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">WOMEN</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">KIDS</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">HOME</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">BEAUTY</li>
-          <li className="text-pink-600 cursor-pointer hover:text-pink-600">GENZ</li>
+          <Link to="/men" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-600 cursor-pointer hover:text-pink-600">MEN</Link>
+          <Link to="/women" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-600 cursor-pointer hover:text-pink-600">WOMEN</Link>
+          <Link to="/kids" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-600 cursor-pointer hover:text-pink-600">KIDS</Link>
+          <Link to="/home-decor" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-600 cursor-pointer hover:text-pink-600">HOME</Link>
+          <Link to="/beauty" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-600 cursor-pointer hover:text-pink-600">BEAUTY</Link>
+          <Link to="/genz" onClick={() => setIsMobileMenuOpen(false)} className="text-pink-600 cursor-pointer hover:text-pink-600">GENZ</Link>
         </ul>
 
         {/* Icons (Mobile) - Horizontal Row */}

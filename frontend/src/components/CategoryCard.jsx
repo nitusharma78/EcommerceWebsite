@@ -1,8 +1,8 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CategoryCard = ({ category }) => {
     return (
-        <div className="group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300">
+        <Link to={`/${category.toLowerCase()}`} className="block group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300">
             <img
                 src={`https://source.unsplash.com/random/400x500/?fashion,${category}`}
                 // Fallback for demo stability
@@ -18,7 +18,7 @@ const CategoryCard = ({ category }) => {
                     Shop Now
                 </span>
             </div>
-        </div>
+        </Link>
     );
 };
 

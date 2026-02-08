@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import CategoryCard from './CategoryCard';
 
@@ -30,9 +31,9 @@ const Home = () => {
                         <p className="mb-8 text-lg text-gray-600 md:text-xl">
                             Upgrade your wardrobe with our latest collection. Trendy, comfortable, and affordable fashion for everyone.
                         </p>
-                        <button className="px-8 py-3.5 text-base font-bold text-white transition-transform transform shadow-lg rounded-full bg-gradient-to-r from-red-500 to-pink-600 hover:scale-105 hover:shadow-xl focus:outline-none">
+                        <Link to="/shop" className="inline-block px-8 py-3.5 text-base font-bold text-white transition-transform transform shadow-lg rounded-full bg-gradient-to-r from-red-500 to-pink-600 hover:scale-105 hover:shadow-xl focus:outline-none">
                             Shop Now
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Image/Visual */}
@@ -78,9 +79,9 @@ const Home = () => {
                             <h2 className="text-3xl font-bold text-gray-900">Trending Now</h2>
                             <p className="mt-2 text-gray-500">Top picks for you this season</p>
                         </div>
-                        <button className="hidden text-sm font-semibold text-red-500 transition hover:text-red-700 md:block">
+                        <Link to="/shop" className="hidden text-sm font-semibold text-red-500 transition hover:text-red-700 md:block">
                             View All &rarr;
-                        </button>
+                        </Link>
                     </div>
 
                     <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
@@ -90,9 +91,9 @@ const Home = () => {
                     </div>
 
                     <div className="mt-8 text-center md:hidden">
-                        <button className="text-sm font-semibold text-red-500 transition hover:text-red-700">
+                        <Link to="/shop" className="text-sm font-semibold text-red-500 transition hover:text-red-700">
                             View All &rarr;
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
